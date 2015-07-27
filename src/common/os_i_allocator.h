@@ -14,10 +14,10 @@ typedef void (*os_i_allocator_reset) (struct OSIAllocator *self);
 
 struct OSIAllocator
 {
-  os_i_allocator_alloc alloc_;
-  os_i_allocator_free free_;
-  os_i_allocator_reuse reuse_;
-  os_i_allocator_reset reset_;
+  os_i_allocator_alloc alloc;
+  os_i_allocator_free free;
+  os_i_allocator_reuse reuse;
+  os_i_allocator_reset reset;
 };
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////

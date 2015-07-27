@@ -27,5 +27,8 @@
 #define OS_SUCCESS 0
 #define OS_INVALID_PARAM -1
 
+#define OS_TC_LOG_BUFFER_COUNT 16
+#define OS_TC_LOG_BUFFER_SIZE 4096
+
 #endif // OS_DEFINE_H_
 

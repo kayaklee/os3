@@ -29,3 +29,10 @@ void os_bind_core(int64_t bind_core_id)
   }
 }
 
+char *os_tc_log_buffer()
+{
+  static __thread char BUFFERS[OS_TC_LOG_BUFFER_COUNT][OS_TC_LOG_BUFFER_SIZE];
+  static __thread int64_t pos = 0;
+  char *buffer = BUFFERS[pos++ % OS_TC_LOG_BUFFER_COUNT];
+  return buffer;
+}

@@ -12,8 +12,9 @@ struct OSPageArena
 {
   struct OSIAllocator *allocator_;
   int64_t page_size_;
-  struct OSPAPage *head_;
-  struct OSPAPage *curr_;
+  struct OSPAPage *free_list_;
+  struct OSPAPage *normal_using_list_;
+  struct OSPAPage *special_using_list_;
   int64_t cnt_;
   int64_t used_;
   int64_t total_;

@@ -25,8 +25,8 @@ static void reset_(struct OSIAllocator *self)
 
 void  __attribute__((constructor)) init_g_default_allocator()
 {
-  g_default_allocator.vt_.alloc_ = alloc_;
-  g_default_allocator.vt_.free_ = free_;
-  g_default_allocator.vt_.reuse_ = reuse_;
-  g_default_allocator.vt_.reset_ = reset_;
+  g_default_allocator.vt_.alloc = alloc_;
+  g_default_allocator.vt_.free = free_;
+  g_default_allocator.vt_.reuse = reuse_;
+  g_default_allocator.vt_.reset = reset_;
 }
