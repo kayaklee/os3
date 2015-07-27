@@ -1,3 +1,4 @@
+#include <string.h>
 #include "os_page_arena.h"
 
 struct OSPAPage
@@ -7,6 +8,18 @@ struct OSPAPage
   int32_t pos_;
   char buf_[0];
 };
+
+struct OSPAPage *get_page_(
+    struct OSPageArena *self,
+    const int64_t size)
+{
+  struct OSPAPage *ret = NULL;
+  if (NULL == self) {
+    // not init
+  } else {
+  }
+  return ret;
+}
 
 int os_pa_init(
     struct OSPageArena *self,
@@ -60,7 +73,7 @@ void *os_pa_alloc(
   } else if (NULL == (page = get_page_(self, size))) {
     // allocate page fail
   } else {
-    ret = alloc_from_page_(self, page, size);
+    //ret = alloc_from_page_(self, page, size);
   }
   return ret;
 }
@@ -78,19 +91,5 @@ void os_pa_reset(
 const char *to_cstring(
     struct OSPageArena *self)
 {
-}
-
-////////////////////////////////////////////////////////////////////////////////////////////////////
-
-struct OSPAPage *get_page_(
-    struct OSPageArena *self,
-    const int64_t size)
-{
-  struct OSPAPage *ret = NULL;
-  if (NULL == self) {
-    // not init
-  } else {
-  }
-  return ret;
 }
 

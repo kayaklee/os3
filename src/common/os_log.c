@@ -1,5 +1,4 @@
 #include "os_log.h"
-#include "os_chunk_writer.h"
 
 static int *os_log_glevel()
 {
