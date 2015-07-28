@@ -1,6 +1,11 @@
 #include <stdlib.h>
 #include "os_i_allocator.h"
 
+struct OSDefaultAllocator
+{
+  struct OSIAllocator vt_;
+};
+
 static void *alloc_(struct OSIAllocator *self, const int64_t size)
 {
   UNUSED(self);
@@ -25,8 +30,14 @@ static void reset_(struct OSIAllocator *self)
 
 void  __attribute__((constructor)) init_g_default_allocator()
 {
-  g_default_allocator.vt_.alloc = alloc_;
-  g_default_allocator.vt_.free = free_;
-  g_default_allocator.vt_.reuse = reuse_;
-  g_default_allocator.vt_.reset = reset_;
+  get_g_default_allocator()->alloc = alloc_;
+  get_g_default_allocator()->free = free_;
+  get_g_default_allocator()->reuse = reuse_;
+  get_g_default_allocator()->reset = reset_;
+}
+
+struct OSIAllocator *get_g_default_allocator()
+{
+  static struct OSDefaultAllocator g_default_allocator;
+  return &g_default_allocator.vt_;
 }

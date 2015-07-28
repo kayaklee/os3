@@ -22,7 +22,7 @@ const char* os_log_print_array(char* buf, int64_t len, int64_t* array, int size)
     }
     else
     {
-      PD_LOG(WARN, "buf not enough, len=%ld, array_size=%d", len, size);
+      OS_LOG(WARN, "buf not enough, len=%ld, array_size=%d", len, size);
       break;
     }
   }

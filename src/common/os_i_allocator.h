@@ -22,12 +22,7 @@ struct OSIAllocator
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////
 
-struct OSDefaultAllocator
-{
-  struct OSIAllocator vt_;
-};
-
-struct OSDefaultAllocator g_default_allocator;
+struct OSIAllocator *get_g_default_allocator();
 
 OS_CPP_END
 

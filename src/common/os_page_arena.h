@@ -38,7 +38,7 @@ void os_pa_reuse(
 void os_pa_reset(
     struct OSPageArena *self);
 
-const char *to_cstring(
+const char *os_pa_to_cstring(
     struct OSPageArena *self);
 
 OS_CPP_END

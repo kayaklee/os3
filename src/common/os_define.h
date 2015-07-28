@@ -1,8 +1,10 @@
 #ifndef OS_DEFINE_H_
 #define OS_DEFINE_H_
 
+#define _GNU_SOURCE
 #include <stdlib.h>
 #include <stdint.h>
+#include <unistd.h>
 #include <sys/syscall.h>
 
 // some macro utilities

@@ -64,7 +64,7 @@ static void *alloc_from_page_(
   if (NULL == self
       || NULL == page) {
     // invalid param
-  } else if (size > (self->page_size_ - page->pos_)) {
+  } else if (size > (page->size_ - page->pos_)) {
     // invalid param
   } else {
     ret = page->buf_ + page->pos_;
@@ -89,8 +89,7 @@ int os_pa_init(
       || INT32_MAX < page_size) {
     ret = OS_INVALID_PARAM;
   } else {
-    self->allocator_ = (NULL == allocator) ?
-      (struct OSIAllocator*)&g_default_allocator : allocator;
+    self->allocator_ = (NULL == allocator) ? get_g_default_allocator() : allocator;
     self->page_size_ = page_size;
     self->free_list_ = NULL;
     self->normal_using_list_ = NULL;
@@ -197,7 +196,7 @@ void os_pa_reset(
   }
 }
 
-const char *to_cstring(
+const char *os_pa_to_cstring(
     struct OSPageArena *self)
 {
   char *ret = os_tc_log_buffer();
